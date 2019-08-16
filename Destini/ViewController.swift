@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         // TODO Step 3: Set the text for the storyTextView, topButton, bottomButton, and to T1_Story, T1_Ans1, and T1_Ans2
         topButton.setTitle(answer1a, for: .normal)
         bottomButton.setTitle(answer1b, for: .normal)
-        
+        storyTextView.text = story1
     }
 
     
@@ -58,10 +58,25 @@ class ViewController: UIViewController {
         // TODO Step 4: Write an IF-Statement to update the views
         if(tag == 1) {
             if(topButton.title(for: .normal) == answer1a) {
-                print("got em")
+                topButton.setTitle(answer3a, for: .normal)
+                storyTextView.text = story3
+            } else if(topButton.title(for: .normal) == answer2a) {
+                topButton.setTitle(answer3a, for: .normal)
+                storyTextView.text = story3
+            } else {
+                storyTextView.text = story6
             }
-            
+        } else if(tag == 2) {
+            if(bottomButton.title(for: .normal) == answer1b) {
+                bottomButton.setTitle(answer2b, for: .normal)
+                storyTextView.text = story2
+            } else if(bottomButton.title(for: .normal) == answer2b) {
+                storyTextView.text = story4
+            } else {
+                storyTextView.text = story5
+            }
         }
+        
                 
         // TODO Step 6: Modify the IF-Statement to complete the story
         
