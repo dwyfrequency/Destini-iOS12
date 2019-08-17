@@ -34,7 +34,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomButton: UIButton!      // Has TAG = 2
     @IBOutlet weak var storyTextView: UILabel!
     
-    // TODO Step 5: Initialise instance variables here    
+    @IBOutlet weak var resetButton: UIButton!
+    // TODO Step 5: Initialise instance variables here
     
     
     override func viewDidLoad() {
@@ -42,17 +43,20 @@ class ViewController: UIViewController {
         
         
         // TODO Step 3: Set the text for the storyTextView, topButton, bottomButton, and to T1_Story, T1_Ans1, and T1_Ans2
-        storyTextView.text = story1
-        topButton.setTitle(answer1a, for: .normal)
-        bottomButton.setTitle(answer1b, for: .normal)
+        resetGame()
     }
 
+    @IBAction func resetBoard(_ sender: UIButton) {
+        let tag = sender.tag
+        if tag == 3 {
+                resetGame()
+        }
+    }
     
     // User presses one of the buttons
     @IBAction func buttonPressed(_ sender: UIButton) {
         
         let tag = sender.tag
-        print(tag)
         // TODO Step 4: Write an IF-Statement to update the views
         if(tag == 1) {
             if(topButton.title(for: .normal) == answer1a) {
@@ -65,6 +69,7 @@ class ViewController: UIViewController {
                 storyTextView.text = story6
                 topButton.isHidden = true
                 bottomButton.isHidden = true
+                resetButton.isHidden = false
             }
         } else if(tag == 2) {
             if(bottomButton.title(for: .normal) == answer1b) {
@@ -76,15 +81,20 @@ class ViewController: UIViewController {
                 storyTextView.text = story5
                 topButton.isHidden = true
                 bottomButton.isHidden = true
+                resetButton.isHidden = false
             }
         }
         
-                
-        // TODO Step 6: Modify the IF-Statement to complete the story
-        
-    
     }
     
+    func resetGame() {
+        storyTextView.text = story1
+        topButton.setTitle(answer1a, for: .normal)
+        bottomButton.setTitle(answer1b, for: .normal)
+        topButton.isHidden = false
+        bottomButton.isHidden = false
+        resetButton.isHidden = true
+    }
 
 
 
