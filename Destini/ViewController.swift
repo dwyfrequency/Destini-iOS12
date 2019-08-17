@@ -34,9 +34,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomButton: UIButton!      // Has TAG = 2
     @IBOutlet weak var storyTextView: UILabel!
     
-    // TODO Step 5: Initialise instance variables here
-    
-    
+    // TODO Step 5: Initialise instance variables here    
     
     
     override func viewDidLoad() {
@@ -65,6 +63,8 @@ class ViewController: UIViewController {
                 storyTextView.text = story3
             } else {
                 storyTextView.text = story6
+                topButton.isHidden = true
+                bottomButton.isHidden = true
             }
         } else if(tag == 2) {
             if(bottomButton.title(for: .normal) == answer1b) {
@@ -74,6 +74,8 @@ class ViewController: UIViewController {
                 storyTextView.text = story4
             } else {
                 storyTextView.text = story5
+                topButton.isHidden = true
+                bottomButton.isHidden = true
             }
         }
         
